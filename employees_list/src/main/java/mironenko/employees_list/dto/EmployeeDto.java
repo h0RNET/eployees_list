@@ -1,5 +1,6 @@
 package mironenko.employees_list.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,6 @@ import java.util.UUID;
 @ToString
 public class EmployeeDto {
     private UUID idEmployee;
-    private String organization;
     private String lastName;
     private String firstName;
     private String patronymic;
@@ -23,4 +23,8 @@ public class EmployeeDto {
     private Date dismissalDate;
     private String education;
     private int graduatedYear;
+    private boolean isDismissed;
+    private Date birthDay;
+
+    private int experience; //опыт работника высчитывается от начала даты работы до даты увольнения
 }

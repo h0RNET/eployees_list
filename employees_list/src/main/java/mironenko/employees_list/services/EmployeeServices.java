@@ -11,4 +11,5 @@ public interface EmployeeServices {
     public EmployeeDto addOneEmployee(EmployeeDto employeeDto);
     public void deleteEmployee(UUID idEmployee);
     public EmployeeDto updateOneEmployee(EmployeeDto employeeDto);
+    public String dismissOneEmployee(UUID idEmployee);
 }

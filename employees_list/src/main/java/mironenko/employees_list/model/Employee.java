@@ -2,6 +2,7 @@ package mironenko.employees_list.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -12,27 +13,29 @@ import java.util.UUID;
 @Table(name = "employee_list")
 @NoArgsConstructor
 @Data
+@ToString
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idEmployee;
+    @Column(length = 16)
+    private UUID idEmployee; //ид сотрудника
 
-    private String organization;
-    private String lastName;
-    private String firstName;
-    private String patronymic;
-    private String position;
+    private String lastName; //Фамилия
+    private String firstName; //Имя
+    private String patronymic; //Отчество
+    private String position; //Должность
+    private String education; //Образование
+    private boolean isDismissed; //уволен или нет
 
     @Temporal(TemporalType.DATE)
-    private Date employmentDate;
+    private Date birthDay; //дата рождения в формате "yyyy-MM-dd"
     @Temporal(TemporalType.DATE)
-    private Date dismissalDate;
-
-
-    private String education;
+    private Date employmentDate; //дата принятия на работу в формате "yyyy-MM-dd"
+    @Temporal(TemporalType.DATE)
+    private Date dismissalDate; //дата увольнения в формате "yyyy-MM-dd"
 
     @Column(length = 4)
     @Size(min = 4, max = 4)
-    private int graduatedYear;
+    private int graduatedYear; //дата окончания обучения в формате "yyyy-MM-dd"
 }

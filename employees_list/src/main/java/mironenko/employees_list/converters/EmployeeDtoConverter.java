@@ -9,7 +9,6 @@ public class EmployeeDtoConverter {
     public EmployeeDto fromEmployeeToEmployeeDto(Employee employee){
         EmployeeDto employeeDto = new EmployeeDto();
         employeeDto.setIdEmployee(employee.getIdEmployee());
-        employeeDto.setOrganization(employee.getOrganization());
         employeeDto.setLastName(employee.getLastName());
         employeeDto.setFirstName(employee.getFirstName());
         employeeDto.setPatronymic(employee.getPatronymic());
@@ -18,13 +17,14 @@ public class EmployeeDtoConverter {
         employeeDto.setDismissalDate(employee.getDismissalDate());
         employeeDto.setEducation(employee.getEducation());
         employeeDto.setGraduatedYear(employee.getGraduatedYear());
+        employeeDto.setBirthDay(employee.getBirthDay());
+        employeeDto.setDismissed(employee.isDismissed());
         return employeeDto;
     }
 
     public Employee fromEmployeeDtoToEmployee(EmployeeDto employeeDto){
         Employee employee = new Employee();
         employee.setIdEmployee(employeeDto.getIdEmployee());
-        employee.setOrganization(employeeDto.getOrganization());
         employee.setLastName(employeeDto.getLastName());
         employee.setFirstName(employeeDto.getFirstName());
         employee.setPatronymic(employeeDto.getPatronymic());
@@ -33,7 +33,8 @@ public class EmployeeDtoConverter {
         employee.setDismissalDate(employeeDto.getDismissalDate());
         employee.setEducation(employeeDto.getEducation());
         employee.setGraduatedYear(employeeDto.getGraduatedYear());
-
+        employee.setBirthDay(employeeDto.getBirthDay());
+        employee.setDismissed(employeeDto.isDismissed());
         return employee;
     }
 }
