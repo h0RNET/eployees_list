@@ -16,7 +16,6 @@ public class EmployeeDtoConverter {
         employeeDto.setEmploymentDate(employee.getEmploymentDate());
         employeeDto.setDismissalDate(employee.getDismissalDate());
         employeeDto.setEducation(employee.getEducation());
-        employeeDto.setGraduatedYear(employee.getGraduatedYear());
         employeeDto.setBirthDay(employee.getBirthDay());
         employeeDto.setDismissed(employee.isDismissed());
         return employeeDto;
@@ -32,7 +31,6 @@ public class EmployeeDtoConverter {
         employee.setEmploymentDate(employeeDto.getEmploymentDate());
         employee.setDismissalDate(employeeDto.getDismissalDate());
         employee.setEducation(employeeDto.getEducation());
-        employee.setGraduatedYear(employeeDto.getGraduatedYear());
         employee.setBirthDay(employeeDto.getBirthDay());
         employee.setDismissed(employeeDto.isDismissed());
         return employee;

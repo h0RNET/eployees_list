@@ -70,29 +70,36 @@ public class DefaultEmployeeServices implements EmployeeServices {
 
     private List<EmployeeDto> setExperience(List<EmployeeDto> employeeDtoList) {
         Calendar calendar = new GregorianCalendar();
+        int emplMounth = 0;
+        int emplYear = 0;
         int experience = 0;
         for (EmployeeDto temp : employeeDtoList) {
-            calendar.setTime(temp.getEmploymentDate());
-            int emplMounth = calendar.get(Calendar.MONTH);
-            int emplYear = calendar.get(Calendar.YEAR);
-            if(temp.getDismissalDate() != null){
-                calendar.setTime(temp.getDismissalDate());
-                int dismMounth = calendar.get(Calendar.MONTH);
-                int dismYear = calendar.get(Calendar.YEAR);
-                experience = dismYear - emplYear;
-                if(experience > 0 && (dismMounth-emplMounth) < 0){
-                    experience --;
+            if(temp.getEmploymentDate() != null) {
+                calendar.setTime(temp.getEmploymentDate());
+                emplMounth = calendar.get(Calendar.MONTH);
+                emplYear = calendar.get(Calendar.YEAR);
+                if(temp.getDismissalDate() != null){
+                    calendar.setTime(temp.getDismissalDate());
+                    int dismMounth = calendar.get(Calendar.MONTH);
+                    int dismYear = calendar.get(Calendar.YEAR);
+                    experience = dismYear - emplYear;
+                    if(experience > 0 && (dismMounth-emplMounth) < 0){
+                        experience --;
+                    }
+                }
+                else{
+                    Date date = new Date();
+                    calendar.setTime(date);
+                    int currentYear = calendar.get(Calendar.YEAR);
+                    int currentMonth = calendar.get(Calendar.MONTH);
+                    experience = currentYear - emplYear;
+                    if(experience > 0 && (currentMonth-emplMounth) < 0){
+                        experience --;
+                    }
                 }
             }
-            else{
-                Date date = new Date();
-                calendar.setTime(date);
-                int currentYear = calendar.get(Calendar.YEAR);
-                int currentMonth = calendar.get(Calendar.MONTH);
-                experience = currentYear - emplYear;
-                if(experience > 0 && (currentMonth-emplMounth) < 0){
-                    experience --;
-                }
+            else {
+                experience = 0;
             }
             temp.setExperience(experience);
         }

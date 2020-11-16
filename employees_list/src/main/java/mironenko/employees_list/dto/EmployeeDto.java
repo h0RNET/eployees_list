@@ -22,7 +22,6 @@ public class EmployeeDto {
     private Date employmentDate;
     private Date dismissalDate;
     private String education;
-    private int graduatedYear;
     private boolean isDismissed;
     private Date birthDay;
 

@@ -34,8 +34,4 @@ public class Employee {
     private Date employmentDate; //дата принятия на работу в формате "yyyy-MM-dd"
     @Temporal(TemporalType.DATE)
     private Date dismissalDate; //дата увольнения в формате "yyyy-MM-dd"
-
-    @Column(length = 4)
-    @Size(min = 4, max = 4)
-    private int graduatedYear; //дата окончания обучения в формате "yyyy-MM-dd"
 }
